@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using SocialApi.Models;
+using System.Data.Entity;
 
 namespace SocialApi.Controllers
 {
