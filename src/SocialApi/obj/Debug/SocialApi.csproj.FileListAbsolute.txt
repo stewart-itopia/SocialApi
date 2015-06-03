@@ -148,3 +148,4 @@ D:\Work\Git\SocialApi\src\SocialApi\bin\ru\System.Spatial.resources.dll
 D:\Work\Git\SocialApi\src\SocialApi\bin\zh-Hans\System.Spatial.resources.dll
 D:\Work\Git\SocialApi\src\SocialApi\bin\zh-Hant\System.Spatial.resources.dll
 D:\Work\Git\SocialApi\src\SocialApi\obj\Debug\SocialApi.pdb
+D:\Work\Git\SocialApi\src\SocialApi\obj\Debug\SocialApi.csprojResolveAssemblyReference.cache

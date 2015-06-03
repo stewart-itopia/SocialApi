@@ -8,6 +8,7 @@ namespace SocialApi.Models
     public string Message { get; set; }
     public byte[] Image { get; set; }
     public int UserProfileId { get; set; }
+    public string Title { get; internal set; }
 
     //public virtual ICollection<Comment> Comments { get; set; }
   }

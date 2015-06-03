@@ -13,15 +13,15 @@ namespace SocialApi.Migrations
     {
     private byte[] articleImage;
     private byte[] avatar;
+    private byte[] statusImage;
 
     public Configuration()
-        {
-            AutomaticMigrationsEnabled = true;
+    {
+      AutomaticMigrationsEnabled = true;
       AutomaticMigrationDataLossAllowed = true;
-       avatar = File.ReadAllBytes(@"D:\Work\Git\socialize-app\src\SocializeApp\www\img\mcfly.jpg");
-
+      avatar = File.ReadAllBytes(@"D:\Work\Git\socialize-app\src\SocializeApp\www\img\mcfly.jpg");
       articleImage = File.ReadAllBytes(@"D:\Work\Git\socialize-app\src\SocializeApp\www\img\delorean.jpg");
-
+      statusImage = File.ReadAllBytes(@"D:\Work\Git\socialize-app\src\SocializeApp\www\img\dookie.jpg");
     }
 
         protected override void Seed(SocializeContext context)
@@ -38,6 +38,70 @@ namespace SocialApi.Migrations
       //      new Person { FullName = "Rowan Miller" }
       //    );
       //
+      var statuses = new List<UserStatus>()
+      {
+        new UserStatus()
+        {
+          Message = "Nine Inch Nails",
+          Image = statusImage,
+          Title = "Pretty Hate Machine"
+        },
+         new UserStatus()
+        {
+          Message = "Nine Inch Nails",
+          Image = statusImage,
+          Title = "Pretty Hate Machine"
+        }
+         ,
+         new UserStatus()
+        {
+          Message = "Nine Inch Nails",
+          Image = statusImage,
+          Title = "Pretty Hate Machine"
+        }
+         ,
+         new UserStatus()
+        {
+          Message = "Nine Inch Nails",
+          Image = statusImage,
+          Title = "Pretty Hate Machine"
+        }
+         ,
+         new UserStatus()
+        {
+          Message = "Nine Inch Nails",
+          Image = statusImage,
+          Title = "Pretty Hate Machine"
+        }
+         ,
+         new UserStatus()
+        {
+          Message = "Nine Inch Nails",
+          Image = statusImage,
+          Title = "Pretty Hate Machine"
+        }
+         ,
+         new UserStatus()
+        {
+          Message = "Nine Inch Nails",
+          Image = statusImage,
+          Title = "Pretty Hate Machine"
+        }
+         ,
+         new UserStatus()
+        {
+          Message = "Nine Inch Nails",
+          Image = statusImage,
+          Title = "Pretty Hate Machine"
+        }
+         ,
+         new UserStatus()
+        {
+          Message = "Nine Inch Nails",
+          Image = statusImage,
+          Title = "Pretty Hate Machine"
+        }
+      };
 
       var rates = new RateCode()
       {
@@ -156,6 +220,7 @@ namespace SocialApi.Migrations
       };
 
       articles.ForEach(a => context.Articles.AddOrUpdate(a));
+      statuses.ForEach(s => context.UserStatuses.AddOrUpdate(s));
       context.RateCodes.AddOrUpdate(rates);
       context.Profiles.AddOrUpdate(user);
       context.Connections.AddOrUpdate(connections);
