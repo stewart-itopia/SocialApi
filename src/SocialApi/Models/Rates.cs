@@ -1,4 +1,6 @@
-﻿namespace SocialApi.Models
+﻿using System;
+
+namespace SocialApi.Models
 {
   public class RateCode
   {
@@ -7,5 +9,7 @@
     public string MaxIncomeCode { get; set; }
     public string FairburnCapitalCode { get; set; }
     public string MoneyMarketRate { get; set; }
+
+    public DateTime DateUpdated { get; set; }
   }
 }

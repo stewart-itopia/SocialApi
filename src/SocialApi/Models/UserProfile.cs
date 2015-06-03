@@ -1,4 +1,6 @@
-﻿namespace SocialApi.Models
+﻿using System;
+
+namespace SocialApi.Models
 {
   public class UserProfile
   {
@@ -10,6 +12,8 @@
     public string CellNumber { get; set; }
     public string JobTitle { get; set; }
     public string ShortBio { get; set; }
-    public string AvatarPath { get; set; }
+    public byte[] Avatar { get; set; }
+
+    public DateTime DateCreated{ get; set; }
   }
 }
