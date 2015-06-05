@@ -2,7 +2,7 @@
 {
   public class Connection
   {
-    public int Id { get; set; }
+    public int ConnectionId { get; set; }
     public int ConnectionCount { get; set; }
     public int GroupCount { get; set; }
     public int FavouritesCount { get; set; }

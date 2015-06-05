@@ -9,43 +9,43 @@ using SocialApi.Models;
 
 namespace SocialApi.Controllers
 {
-  public class StatusController : ApiController
+  public class RatesController : ApiController
   {
     private readonly SocializeContext db = new SocializeContext();
-    // GET: api/Status
-    public IQueryable<Status> GetStatuses()
+    // GET: api/Rates
+    public IQueryable<Rate> GetRates()
     {
-      return db.Statuses;
+      return db.Rates;
     }
 
-    // GET: api/Status/5
-    [ResponseType(typeof (Status))]
-    public async Task<IHttpActionResult> GetStatus(int id)
+    // GET: api/Rates/5
+    [ResponseType(typeof (Rate))]
+    public async Task<IHttpActionResult> GetRate(int id)
     {
-      var status = await db.Statuses.FindAsync(id);
-      if (status == null)
+      var rate = await db.Rates.FindAsync(id);
+      if (rate == null)
       {
         return NotFound();
       }
 
-      return Ok(status);
+      return Ok(rate);
     }
 
-    // PUT: api/Status/5
+    // PUT: api/Rates/5
     [ResponseType(typeof (void))]
-    public async Task<IHttpActionResult> PutStatus(int id, Status status)
+    public async Task<IHttpActionResult> PutRate(int id, Rate rate)
     {
       if (!ModelState.IsValid)
       {
         return BadRequest(ModelState);
       }
 
-      if (id != status.StatusId)
+      if (id != rate.RateId)
       {
         return BadRequest();
       }
 
-      db.Entry(status).State = EntityState.Modified;
+      db.Entry(rate).State = EntityState.Modified;
 
       try
       {
@@ -53,7 +53,7 @@ namespace SocialApi.Controllers
       }
       catch (DbUpdateConcurrencyException)
       {
-        if (!StatusExists(id))
+        if (!RateExists(id))
         {
           return NotFound();
         }
@@ -63,35 +63,35 @@ namespace SocialApi.Controllers
       return StatusCode(HttpStatusCode.NoContent);
     }
 
-    // POST: api/Status
-    [ResponseType(typeof (Status))]
-    public async Task<IHttpActionResult> PostStatus(Status status)
+    // POST: api/Rates
+    [ResponseType(typeof (Rate))]
+    public async Task<IHttpActionResult> PostRate(Rate rate)
     {
       if (!ModelState.IsValid)
       {
         return BadRequest(ModelState);
       }
 
-      db.Statuses.Add(status);
+      db.Rates.Add(rate);
       await db.SaveChangesAsync();
 
-      return CreatedAtRoute("DefaultApi", new {id = status.StatusId}, status);
+      return CreatedAtRoute("DefaultApi", new {id = rate.RateId}, rate);
     }
 
-    // DELETE: api/Status/5
-    [ResponseType(typeof (Status))]
-    public async Task<IHttpActionResult> DeleteStatus(int id)
+    // DELETE: api/Rates/5
+    [ResponseType(typeof (Rate))]
+    public async Task<IHttpActionResult> DeleteRate(int id)
     {
-      var status = await db.Statuses.FindAsync(id);
-      if (status == null)
+      var rate = await db.Rates.FindAsync(id);
+      if (rate == null)
       {
         return NotFound();
       }
 
-      db.Statuses.Remove(status);
+      db.Rates.Remove(rate);
       await db.SaveChangesAsync();
 
-      return Ok(status);
+      return Ok(rate);
     }
 
     protected override void Dispose(bool disposing)
@@ -103,9 +103,9 @@ namespace SocialApi.Controllers
       base.Dispose(disposing);
     }
 
-    private bool StatusExists(int id)
+    private bool RateExists(int id)
     {
-      return db.Statuses.Count(e => e.StatusId == id) > 0;
+      return db.Rates.Count(e => e.RateId == id) > 0;
     }
   }
 }

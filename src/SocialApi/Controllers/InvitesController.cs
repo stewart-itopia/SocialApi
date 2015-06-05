@@ -9,43 +9,43 @@ using SocialApi.Models;
 
 namespace SocialApi.Controllers
 {
-  public class StatusController : ApiController
+  public class InvitesController : ApiController
   {
     private readonly SocializeContext db = new SocializeContext();
-    // GET: api/Status
-    public IQueryable<Status> GetStatuses()
+    // GET: api/Invites
+    public IQueryable<Invite> GetInvites()
     {
-      return db.Statuses;
+      return db.Invites;
     }
 
-    // GET: api/Status/5
-    [ResponseType(typeof (Status))]
-    public async Task<IHttpActionResult> GetStatus(int id)
+    // GET: api/Invites/5
+    [ResponseType(typeof (Invite))]
+    public async Task<IHttpActionResult> GetInvite(int id)
     {
-      var status = await db.Statuses.FindAsync(id);
-      if (status == null)
+      var invite = await db.Invites.FindAsync(id);
+      if (invite == null)
       {
         return NotFound();
       }
 
-      return Ok(status);
+      return Ok(invite);
     }
 
-    // PUT: api/Status/5
+    // PUT: api/Invites/5
     [ResponseType(typeof (void))]
-    public async Task<IHttpActionResult> PutStatus(int id, Status status)
+    public async Task<IHttpActionResult> PutInvite(int id, Invite invite)
     {
       if (!ModelState.IsValid)
       {
         return BadRequest(ModelState);
       }
 
-      if (id != status.StatusId)
+      if (id != invite.InviteId)
       {
         return BadRequest();
       }
 
-      db.Entry(status).State = EntityState.Modified;
+      db.Entry(invite).State = EntityState.Modified;
 
       try
       {
@@ -53,7 +53,7 @@ namespace SocialApi.Controllers
       }
       catch (DbUpdateConcurrencyException)
       {
-        if (!StatusExists(id))
+        if (!InviteExists(id))
         {
           return NotFound();
         }
@@ -63,35 +63,35 @@ namespace SocialApi.Controllers
       return StatusCode(HttpStatusCode.NoContent);
     }
 
-    // POST: api/Status
-    [ResponseType(typeof (Status))]
-    public async Task<IHttpActionResult> PostStatus(Status status)
+    // POST: api/Invites
+    [ResponseType(typeof (Invite))]
+    public async Task<IHttpActionResult> PostInvite(Invite invite)
     {
       if (!ModelState.IsValid)
       {
         return BadRequest(ModelState);
       }
 
-      db.Statuses.Add(status);
+      db.Invites.Add(invite);
       await db.SaveChangesAsync();
 
-      return CreatedAtRoute("DefaultApi", new {id = status.StatusId}, status);
+      return CreatedAtRoute("DefaultApi", new {id = invite.InviteId}, invite);
     }
 
-    // DELETE: api/Status/5
-    [ResponseType(typeof (Status))]
-    public async Task<IHttpActionResult> DeleteStatus(int id)
+    // DELETE: api/Invites/5
+    [ResponseType(typeof (Invite))]
+    public async Task<IHttpActionResult> DeleteInvite(int id)
     {
-      var status = await db.Statuses.FindAsync(id);
-      if (status == null)
+      var invite = await db.Invites.FindAsync(id);
+      if (invite == null)
       {
         return NotFound();
       }
 
-      db.Statuses.Remove(status);
+      db.Invites.Remove(invite);
       await db.SaveChangesAsync();
 
-      return Ok(status);
+      return Ok(invite);
     }
 
     protected override void Dispose(bool disposing)
@@ -103,9 +103,9 @@ namespace SocialApi.Controllers
       base.Dispose(disposing);
     }
 
-    private bool StatusExists(int id)
+    private bool InviteExists(int id)
     {
-      return db.Statuses.Count(e => e.StatusId == id) > 0;
+      return db.Invites.Count(e => e.InviteId == id) > 0;
     }
   }
 }

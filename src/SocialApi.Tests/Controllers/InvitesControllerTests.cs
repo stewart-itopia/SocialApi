@@ -9,36 +9,36 @@ using System.Threading.Tasks;
 namespace SocialApi.Controllers.Tests
 {
   [TestClass()]
-  public class RateControllerTests
+  public class InvitesControllerTests
   {
     [TestMethod()]
-    public void GetRateCodesTest()
+    public void GetInvitesTest()
     {
-      Assert.Fail();
+
     }
 
     [TestMethod()]
-    public void GetRateCodeTest()
+    public void GetInviteTest()
     {
-      Assert.Fail();
+
     }
 
     [TestMethod()]
-    public void PutRateCodeTest()
+    public void PutInviteTest()
     {
-      Assert.Fail();
+
     }
 
     [TestMethod()]
-    public void PostRateCodeTest()
+    public void PostInviteTest()
     {
-      Assert.Fail();
+
     }
 
     [TestMethod()]
-    public void DeleteRateCodeTest()
+    public void DeleteInviteTest()
     {
-      Assert.Fail();
+
     }
   }
 }

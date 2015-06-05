@@ -12,33 +12,33 @@ namespace SocialApi.Controllers.Tests
   public class StatusControllerTests
   {
     [TestMethod()]
-    public void GetUserStatusTest()
+    public void GetStatusesTest()
     {
-      Assert.Fail();
+
     }
 
     [TestMethod()]
-    public void GetUserStatusTest1()
+    public void GetStatusTest()
     {
-      Assert.Fail();
+
     }
 
     [TestMethod()]
-    public void PutUserStatusTest()
+    public void PutStatusTest()
     {
-      Assert.Fail();
+
     }
 
     [TestMethod()]
-    public void PostUserStatusTest()
+    public void PostStatusTest()
     {
-      Assert.Fail();
+
     }
 
     [TestMethod()]
-    public void DeleteUserStatusTest()
+    public void DeleteStatusTest()
     {
-      Assert.Fail();
+
     }
   }
 }
